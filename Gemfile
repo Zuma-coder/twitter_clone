@@ -84,4 +84,9 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'slim-rails'
 gem 'devise'
+gem 'omniauth'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'devise-bootstrap-views'
