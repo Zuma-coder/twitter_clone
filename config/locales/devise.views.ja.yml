@@ -6,6 +6,8 @@ ja:
         email: "メールアドレス"
         phone_number: "電話番号"
         birthdate: "生年月日"
+        username: "ユーザネーム"
+        user_id: "ユーザID"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
@@ -17,6 +19,7 @@ ja:
           attributes:
             email:
               blank: "を入力してください"
+              taken: "がすでに使用されています"
             password:
               blank: "を入力してください"
             phone_number:

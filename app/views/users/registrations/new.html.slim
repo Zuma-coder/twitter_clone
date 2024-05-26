@@ -17,6 +17,14 @@
           br/
           = f.date_select :birthdate, start_year: 1900, end_year: Date.today.year, class: 'form-control'
         .form-group
+          = f.label :username
+          br/
+          = f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control'
+        .form-group
+          = f.label :user_id
+          br/
+          = f.text_field :user_id, autofocus: true, autocomplete: "user_id", class: 'form-control'
+        .form-group
           = f.label :password
           - if @minimum_password_length
             em
@@ -30,3 +38,4 @@
         .form-group
           = f.submit "登録", class: 'btn btn-primary mt-3'
       = render "users/shared/links"
+      = link_to 'tweets', tweets_path
