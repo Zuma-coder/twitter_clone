@@ -1,0 +1,13 @@
+.container
+  .row.justify-content-center
+    .col-md-6
+      h2 アカウントの凍結解除方法を再送する
+      = form_with model: @user, url: unlock_path(resource_name), local: true do |f|
+        = render "users/shared/error_messages", resource: resource
+        .form-group
+          = f.label :email
+          br/
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+        .actions
+          = f.submit "アカウントの凍結解除方法を再送する", class: 'btn btn-primary mt-3'
+      = render "users/shared/links"

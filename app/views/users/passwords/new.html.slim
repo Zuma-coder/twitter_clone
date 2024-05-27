@@ -1,0 +1,13 @@
+.container
+  .row.justify-content-center
+    .col-md-6
+      h2 パスワードをお忘れですか？
+      = form_with model: @user, url: password_path(resource_name), local: true do |f|
+        = render "users/shared/error_messages", resource: resource
+        .form-group
+          = f.label :email
+          br/
+          = f.email_field :email, autofocus: true, autocomplete: "email"
+        .form-group
+          = f.submit "パスワード再設定方法を送信する", class: 'btn btn-primary mt-3'
+      = render "users/shared/links"

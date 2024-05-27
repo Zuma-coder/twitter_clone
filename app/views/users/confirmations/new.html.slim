@@ -1,0 +1,13 @@
+.container
+  .row.justify-content-center
+    .col-md-6
+      h2 確認メールを再送する
+      = form_with model: @user, url: confirmation_path(resource_name), local: true do |f|
+        = render "users/shared/error_messages", resource: resource
+        .form-group
+          = f.label :email
+          br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+        .form-group
+          = f.submit "確認メールを再送する", class: 'btn btn-primary mt-3'
+      = render "users/shared/links"
