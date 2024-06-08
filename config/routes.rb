@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     confirmations: 'users/confirmations',
-    unlocks: 'users/unlocks'
+    unlocks: 'users/unlocks',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
   root to: 'tweets#index'
