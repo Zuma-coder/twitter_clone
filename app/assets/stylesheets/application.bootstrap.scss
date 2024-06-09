@@ -1,2 +1,22 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+// atoms
+@import 'atoms/button';
+
+// components
+@import 'components/header';
+@import 'components/sidebar';
+@import 'components/tweet_form';
+@import 'components/tweet_content';
+
+// pages
+@import 'pages/tweets/index';
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}

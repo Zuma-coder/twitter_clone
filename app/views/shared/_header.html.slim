@@ -1,0 +1,14 @@
+.home-header
+  .container
+    nav.navbar
+      .container-fluid
+        a.navbar-brand.title href=root_path
+          i.fab.fa-twitter
+          span Twitterクローン
+
+        .navbar-right
+          - if user_signed_in?
+            = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-danger'
+          - else
+            = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary-reverse'
+            = link_to 'アカウント登録', new_user_registration_path, class: 'btn btn-primary'

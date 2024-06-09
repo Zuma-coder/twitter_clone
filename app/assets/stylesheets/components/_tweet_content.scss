@@ -1,0 +1,50 @@
+article {
+  .wrapper {
+    display: flex;
+
+    .user-icon {
+      height: 44px;
+      border-radius: 50%;
+      margin: 4px 0 0 10px;
+    }
+
+    .right-block {
+      width: 100%;
+
+      .header {
+        display: flex;
+    
+        .user-info {
+          display: flex;
+    
+          .info-item {
+            margin-top: 4px;
+            margin-left: 10px;
+          }
+
+          .name {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .content {
+        margin-left: 10px;
+        min-height: 60px;
+      }
+
+      .actions {
+        margin-left: 10px;
+
+        .icons {
+          font-size: 20px;
+          display: flex;
+
+          i {
+            flex: 1;
+          }
+        }
+      }
+    }
+  }
+}
