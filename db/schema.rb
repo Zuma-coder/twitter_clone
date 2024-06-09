@@ -10,12 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_02_073020) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_09_082320) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "relationships", force: :cascade do |t|
+    t.bigint "following_id"
+    t.bigint "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["following_id", "followed_id"], name: "index_relationships_on_following_id_and_followed_id", unique: true
+    t.index ["following_id"], name: "index_relationships_on_following_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.bigint "tweet_id"
+    t.text "content"
+    t.string "image_url"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
   create_table "tweets", force: :cascade do |t|
     t.text "content"
+    t.string "image_url"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,8 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_02_073020) do
     t.date "birthdate"
     t.string "username"
     t.string "user_id"
+    t.string "provider"
     t.string "uid"
-    t.string "provider", default: "", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -56,5 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_02_073020) do
     t.index ["user_id"], name: "index_users_on_user_id", unique: true
   end
 
+  add_foreign_key "relationships", "users", column: "followed_id"
+  add_foreign_key "relationships", "users", column: "following_id"
+  add_foreign_key "replies", "users"
   add_foreign_key "tweets", "users"
 end
