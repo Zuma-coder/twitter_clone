@@ -1,5 +1,10 @@
 .home-header {
   border-bottom: 1px solid #38444d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
 
   .title {
     color: blue;

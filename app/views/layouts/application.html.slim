@@ -10,13 +10,8 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
     link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
   body
-    - if notice.present?
-      span.notice= notice
-    - if alert.present?
-      span.alert= alert
-
     header
       = render 'shared/header'
 
-    .container
+    main
       = yield

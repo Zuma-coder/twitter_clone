@@ -15,8 +15,17 @@
 
 .notice {
   color: green;
+  margin-left: 10px;
 }
 
 .alert {
   color: red;
+  margin-left: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 60px;
 }

@@ -1,20 +1,28 @@
 .container
   .main
-    = render 'shared/sidebar'
+    = render 'sidebar', user: current_user
 
-    main.content
-      .tabs
-        .title ホーム
-        ul.nav.nav-tabs
-          li.nav-item
-            = link_to "おすすめ", tweets_path, class: "nav-link #{'active' if current_page?(tweets_path)}"
-          li.nav-item
-            = link_to "フォロー中", following_tweets_path, class: "nav-link #{'active' if current_page?(following_tweets_path)}"
+    .content
+      - if notice || alert
+       = render 'shared/flash'
 
-      // ツイート投稿部分
-      .tweet-form
-        = render 'shared/tweet_form'
+      - if current_user
+        .tabs
+          .title ホーム
+          ul.nav.nav-tabs
+            li.nav-item
+              = link_to "おすすめ", tweets_path, class: "nav-link #{'active' if current_page?(tweets_path)}"
+            li.nav-item
+              = link_to "フォロー中", following_tweets_path, class: "nav-link #{'active' if current_page?(following_tweets_path)}"
+
+        // ツイート投稿部分
+        .tweet-form
+          = render 'tweet_form'
       
       // ツイート一覧部分
       .tweets
-        = render 'shared/tweet_content'
+        - @tweets.each do |tweet|
+          = render 'tweet_content', tweet: tweet
+      
+      .paginate
+        = paginate(@tweets)

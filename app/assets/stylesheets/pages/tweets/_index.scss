@@ -1,15 +1,17 @@
 .main {
   display: flex;
+  justify-content: space-between;
 
   .content {
-    width: 75%;
+    width: calc(100% - 270px);
+    margin-left: auto;
 
     .tabs {
       border-right: 1px solid grey;
 
       .title {
         font-size: 24px;
-        padding: 10px 0 10px 10px;
+        padding: 10px 0 10px 20px;
       }
 
       ul.nav-tabs {
@@ -32,6 +34,17 @@
 
     .tweet-form {
       border: 1px solid grey;
+    }
+
+    .paginate {
+      margin: 20px auto;
+
+      nav {
+        ul {
+          display: flex;
+          justify-content: center;
+        }
+      }
     }
   }
 }

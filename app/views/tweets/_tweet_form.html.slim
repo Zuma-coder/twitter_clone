@@ -1,11 +1,11 @@
 form
-  .wrapper
-    = image_tag "default_icon.jpeg", class: "user-icon"
+  .a-wrapper
+    = image_tag(asset_path('default_icon.jpg'), class: "a-user-icon")
 
-    .right-block
+    .a-right-block
       textarea[placeholder="いまどうしてる？"]
   
-      .actions
-        .icons
+      .a-actions
+        .a-icons
           i.fas.fa-image
         button.btn.btn-primary ツイートする
