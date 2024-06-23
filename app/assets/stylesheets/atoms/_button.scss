@@ -1,0 +1,10 @@
+.btn-primary-reverse {
+  background-color: white;
+  color: blue;
+  border-color: blue;
+
+  &:hover {
+    background-color: #0b5ed7;
+    color: white;
+  }
+}

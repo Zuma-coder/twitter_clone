@@ -1,0 +1,31 @@
+.home-header {
+  border-bottom: 1px solid #38444d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+
+  .title {
+    color: blue;
+    margin-left: 10px;
+  
+    span {
+      font-size: 16px;
+    }
+  
+    &:hover {
+      color: blue;
+    }
+  }
+}
+
+.navbar-right {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+
+  .btn {
+    margin-right: 10px;
+  }
+}

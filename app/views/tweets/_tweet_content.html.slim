@@ -1,0 +1,20 @@
+article
+  .a-wrapper
+    = image_tag(asset_path('default_icon.jpg'), class: "a-user-icon")
+
+    .a-right-block
+      .a-header
+        .a-user-info
+          .a-info-item.a-name= tweet.user.username
+          .a-info-item.a-id= "@#{tweet.user.user_id}"
+          .a-info-item.a-time= display_time(tweet)
+      .a-content
+        p= tweet.content
+        - if tweet.image.present?
+          = image_tag(tweet.image, class: "a-content-image")
+      .a-actions
+        .a-icons
+          i.fas.fa-comment
+          i.fas.fa-retweet
+          i.fas.fa-heart
+          i.fas.fa-share

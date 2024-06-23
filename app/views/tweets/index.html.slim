@@ -1,11 +1,28 @@
-- if user_signed_in?
-  h1
-    = current_user.username
-    | さん
-  = button_to "つぶやく"
-  = button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger'
-- else
-  h1 ゲストさん
-  p
-    = link_to 'アカウント登録', new_user_registration_path, class: 'btn btn-primary'
-    = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary'
+.container
+  .main
+    = render 'sidebar', user: current_user
+
+    .content
+      - if notice || alert
+       = render 'shared/flash'
+
+      - if current_user
+        .tabs
+          .title ホーム
+          ul.nav.nav-tabs
+            li.nav-item
+              = link_to "おすすめ", tweets_path, class: "nav-link #{'active' if current_page?(tweets_path)}"
+            li.nav-item
+              = link_to "フォロー中", following_tweets_path, class: "nav-link #{'active' if current_page?(following_tweets_path)}"
+
+        // ツイート投稿部分
+        .tweet-form
+          = render 'tweet_form'
+      
+      // ツイート一覧部分
+      .tweets
+        - @tweets.each do |tweet|
+          = render 'tweet_content', tweet: tweet
+      
+      .paginate
+        = paginate(@tweets)

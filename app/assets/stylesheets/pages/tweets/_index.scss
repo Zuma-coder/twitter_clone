@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+
+  .content {
+    width: calc(100% - 270px);
+    margin-left: auto;
+
+    .tabs {
+      border-right: 1px solid grey;
+
+      .title {
+        font-size: 24px;
+        padding: 10px 0 10px 20px;
+      }
+
+      ul.nav-tabs {
+        display: flex;
+        justify-content: space-between;
+
+        .nav-item {
+          flex: 1;
+          text-align: center;
+
+          .nav-link {
+            display: block;
+            width: 100%;
+            color: black;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .tweet-form {
+      border: 1px solid grey;
+    }
+
+    .paginate {
+      margin: 20px auto;
+
+      nav {
+        ul {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

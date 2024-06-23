@@ -85,11 +85,14 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'aws-sdk-s3'
+gem 'bootstrap', '~> 5.0.2'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'dotenv-rails'
+gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
